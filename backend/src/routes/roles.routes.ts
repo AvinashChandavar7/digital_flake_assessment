@@ -1,10 +1,10 @@
-import { Router } from "express";
+// import { Router } from "express";
 
-import { } from "../controllers/roles.controller";
-
-
-const router = Router();
+// import { } from "../controllers/roles.controller";
 
 
+// const router = Router();
 
-export default router;
+
+
+// export default router;
