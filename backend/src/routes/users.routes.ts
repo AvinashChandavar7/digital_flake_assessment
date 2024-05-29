@@ -1,8 +1,10 @@
 import { Router } from "express";
 
 import verifyToken from "../middleware/auth.middleware";
-
+import authorizeRoles from "../middleware/authRoles.middleware";
 import upload from "../middleware/multer.middleware";
+
+import { AllowedRoles } from "../types/shared";
 
 import {
   getCurrentUser,
@@ -16,8 +18,7 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/user.controller";
-import authorizeRoles from "../middleware/authRoles.middleware";
-import { AllowedRoles } from "../models/users.model";
+
 
 
 
