@@ -46,7 +46,6 @@ const userSchema: Schema<IUser> = new Schema(
       type: String,
       required: [true, "Please provide passwords."],
       minlength: 8,
-      select: false,
     },
     roleName: {
       type: String,
