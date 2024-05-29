@@ -75,8 +75,20 @@ const loginUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, { userId: user._id }, "User successfully login"));
 })
 
+const tokenValidation = asyncHandler(async (req, res) => {
+  return res.status(200)
+    .json(new ApiResponse(200, { userId: req.userId }, "Token Validation"));
+})
+
+const logoutUser = asyncHandler(async (req, res) => {
+  return res.status(200)
+    .cookie("auth_Token", "", { expires: new Date(0), httpOnly: true })
+    .json(new ApiResponse(200, "User successfully LogOut"));
+})
 
 export {
   registerUser,
-  loginUser
+  loginUser,
+  logoutUser,
+  tokenValidation,
 };
