@@ -12,7 +12,11 @@ export const content = [
 
 export default {
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'purple-650': '#662671',
+      },
+    },
   },
 }
 
