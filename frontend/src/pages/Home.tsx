@@ -1,9 +1,10 @@
 import React from 'react'
+import LeftSidebar from '../components/shared/LeftSidebar';
 
 const Home: React.FC = () => {
   return (
     <div>
-      sidebar
+      <LeftSidebar />
     </div>
   )
 }
