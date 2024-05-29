@@ -2,17 +2,17 @@ import { Schema, models, model, Document } from "mongoose";
 import { AllowedRoles } from "../types/shared";
 
 export interface IRole extends Document {
-  roleName: AllowedRoles;
+  rolesName: AllowedRoles;
   status: boolean;
 }
 
 const roleSchema: Schema<IRole> = new Schema({
-  roleName: {
+  rolesName: {
     type: String,
     required: [true, "A role must have a name"],
     enum: Object.values(AllowedRoles),
     default: AllowedRoles.Admin,
-    unique: true,
+    // unique: true,
     trim: true,
   },
   status: {
