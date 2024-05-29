@@ -3,6 +3,7 @@ import { ApiResponse } from "../utils/ApiResponse";
 import { asyncHandler } from "../utils/asyncHandler";
 
 import User from "../models/users.model";
+import { uploadImage, uploadImages } from "../utils/cloudinary";
 
 const getCurrentUser = asyncHandler(async (req, res) => {
   //#swagger.tags = ['User']
@@ -68,11 +69,39 @@ const deleteUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, { user }, "get User Details Deleted successfully "));
 });
 
+const updateUserAvatar = asyncHandler(async (req, res) => {
+  //#swagger.tags = ['User']
+
+  if (!req.file) {
+    return res.status(400).json(new ApiResponse(400, "No file uploaded"));
+  }
+
+
+  const avatarUrl = await uploadImage(req.file);
+  const userId = req.userId;
+
+  const updateUser = await User.findByIdAndUpdate(
+    userId,
+    { avatar: avatarUrl },
+    { new: true, runValidators: true }
+  ).select("-password");
+
+  if (!updateUser) {
+    throw new ApiError(404, "User not found");
+  }
+
+  return res
+    .status(200)
+    .json(new ApiResponse(200, { updateUser }, "Avatar updated successfully"));
+});
+
 
 export {
   getCurrentUser,
 
   getUserById,
   updateUser,
-  deleteUser
+  deleteUser,
+
+  updateUserAvatar
 };

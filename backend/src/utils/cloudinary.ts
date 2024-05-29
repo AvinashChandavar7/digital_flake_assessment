@@ -20,6 +20,17 @@ async function uploadImageToCloudinary(image: Express.Multer.File) {
   }
 }
 
+export const uploadImage = async (imageFile: Express.Multer.File) => {
+  try {
+    const imageUrl = await uploadImageToCloudinary(imageFile);
+    return imageUrl;
+  } catch (error: any) {
+    console.error('Error uploading image to Cloudinary:', error);
+    throw new Error('Error uploading image to Cloudinary');
+  }
+};
+
+
 
 export const uploadImages = async (imageFiles: Express.Multer.File[]) => {
   try {

@@ -18,7 +18,7 @@ export interface IUser extends Document {
   // roles?: mongoose.Types.ObjectId[];
   roleName: AllowedRoles;
   status: boolean;
-  photo?: string;
+  avatar?: string;
 }
 
 const userSchema: Schema<IUser> = new Schema(
@@ -58,7 +58,7 @@ const userSchema: Schema<IUser> = new Schema(
       required: [false, "Please specify the status"],
       default: true,
     },
-    photo: {
+    avatar: {
       type: String,
       default: 'default.jpg',
     },
