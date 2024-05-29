@@ -112,7 +112,7 @@ const getAllUsers = asyncHandler(async (req, res) => {
 
 const constructorSearchQuery = (queryParams: any) => {
 
-  const { name, mobile, email, roleName } = queryParams;
+  const { name, mobile, email, roleName, status } = queryParams;
 
   let constructedQuery: any = {};
 
@@ -121,6 +121,7 @@ const constructorSearchQuery = (queryParams: any) => {
   if (mobile) constructedQuery.mobile = new RegExp(mobile, "i");
   if (roleName) constructedQuery.roleName = roleName;
 
+  if (status !== undefined) constructedQuery.status = status === 'true';
 
   return constructedQuery;
 }

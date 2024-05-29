@@ -16,6 +16,8 @@ import {
   updateUser,
   deleteUser,
 } from "../controllers/user.controller";
+import authorizeRoles from "../middleware/authRoles.middleware";
+import { AllowedRoles } from "../models/users.model";
 
 
 
@@ -37,7 +39,11 @@ router.get("/searchAndFilterUsers", verifyToken, searchAndFilterUsers);
 router
   .route('/:id')
   .get(getUserById)
-  .patch(updateUser)
+  .patch(
+    verifyToken,
+    authorizeRoles(AllowedRoles.Admin, AllowedRoles.SuperAdmin),
+    updateUser
+  )
   .delete(deleteUser);
 
 

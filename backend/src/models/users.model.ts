@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import jwt, { SignOptions } from "jsonwebtoken";
 
 
-enum AllowedRoles {
+export enum AllowedRoles {
   Admin = "admin",
   SuperAdmin = "superadmin",
   Caller = "caller",
