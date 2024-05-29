@@ -131,6 +131,48 @@
         }
       }
     },
+    "/api/v1/users/getAllUsers": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/api/v1/users/searchAndFilterUsers": {
+      "get": {
+        "tags": [
+          "User - Search or Filter"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "sortOption",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/v1/users/{id}": {
       "get": {
         "tags": [

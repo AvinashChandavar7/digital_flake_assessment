@@ -9,6 +9,9 @@ import {
 
   updateUserAvatar,
 
+  getAllUsers,
+  searchAndFilterUsers,
+
   getUserById,
   updateUser,
   deleteUser,
@@ -26,6 +29,10 @@ router.patch(
   upload.single('avatar'),
   updateUserAvatar
 )
+
+
+router.get("/getAllUsers", verifyToken, getAllUsers);
+router.get("/searchAndFilterUsers", verifyToken, searchAndFilterUsers);
 
 router
   .route('/:id')
