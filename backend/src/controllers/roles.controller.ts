@@ -96,14 +96,11 @@ const searchAndFilterRoles = asyncHandler(async (req, res) => {
   let sortOptions = {};
 
   switch (req.query.sortOption) {
-    case "name":
-      sortOptions = { name: 1 };
+    case "rolesName":
+      sortOptions = { rolesName: 1 };
       break;
-    case "mobile":
-      sortOptions = { mobile: 1 };
-      break;
-    case "email":
-      sortOptions = { email: 1 };
+    case "status":
+      sortOptions = { status: 1 };
       break;
     default:
       sortOptions = { createdAt: -1 };
