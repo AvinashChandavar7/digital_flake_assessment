@@ -78,6 +78,9 @@
     },
     "/api/v1/auth/logout": {
       "post": {
+        "tags": [
+          "User-Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
@@ -88,6 +91,9 @@
     },
     "/api/v1/auth/validate-token": {
       "get": {
+        "tags": [
+          "User-Auth"
+        ],
         "description": "",
         "responses": {
           "200": {
