@@ -36,10 +36,43 @@ const getUserById = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, { user }, "get User Details successfully "));
 });
 
+const updateUser = asyncHandler(async (req, res) => {
+  //#swagger.tags = ['User']
+
+  const id = req.params.id.toString();
+
+  const user = await User.findByIdAndUpdate(
+    id, req.body, { new: true, runValidators: true },
+  );
+
+  if (!user) {
+    throw new ApiError(400, "User not Found");
+  }
+
+  return res.status(200)
+    .json(new ApiResponse(200, { user }, "get User Details Updated successfully "));
+});
+
+const deleteUser = asyncHandler(async (req, res) => {
+  //#swagger.tags = ['User']
+
+  const id = req.params.id.toString();
+
+  const user = await User.findByIdAndDelete(id);
+
+  if (!user) {
+    throw new ApiError(400, "User not Found");
+  }
+
+  return res.status(200)
+    .json(new ApiResponse(200, { user }, "get User Details Deleted successfully "));
+});
 
 
 export {
   getCurrentUser,
 
   getUserById,
+  updateUser,
+  deleteUser
 };
