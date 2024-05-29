@@ -1,14 +1,9 @@
 import mongoose, { Schema, models, model, Document } from "mongoose";
 import bcrypt from 'bcryptjs';
 import jwt, { SignOptions } from "jsonwebtoken";
+import { AllowedRoles } from "../types/shared";
 
 
-export enum AllowedRoles {
-  Admin = "admin",
-  SuperAdmin = "superadmin",
-  Caller = "caller",
-  Account = "account",
-}
 
 export interface IUser extends Document {
   name?: string;

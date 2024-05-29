@@ -26,12 +26,12 @@ app.use(cookieParser());
 // Routes
 import userRoutes from "./routes/users.routes"
 import authRoutes from "./routes/auth.routes"
-// import rolesRoutes from "./routes/roles.routes"
+import rolesRoutes from "./routes/roles.routes"
 
 
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/users", userRoutes)
-// app.use("/api/v1/roles", rolesRoutes)
+app.use("/api/v1/roles", rolesRoutes)
 
 
 const options = { explorer: true, }

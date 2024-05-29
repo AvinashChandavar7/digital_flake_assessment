@@ -1,33 +1,27 @@
-// import { Schema, models, model, Document } from "mongoose";
+import { Schema, models, model, Document } from "mongoose";
+import { AllowedRoles } from "../types/shared";
 
-// enum AllowedRoles {
-//   Admin = "admin",
-//   SuperAdmin = "superadmin",
-//   Caller = "caller",
-//   Account = "account",
-// }
+export interface IRole extends Document {
+  roleName: AllowedRoles;
+  status: boolean;
+}
 
-// export interface IRole extends Document {
-//   roleName: AllowedRoles;
-//   status: boolean;
-// }
+const roleSchema: Schema<IRole> = new Schema({
+  roleName: {
+    type: String,
+    required: [true, "A role must have a name"],
+    enum: Object.values(AllowedRoles),
+    default: AllowedRoles.Admin,
+    unique: true,
+    trim: true,
+  },
+  status: {
+    type: Boolean,
+    required: [true, "Please specify the status"],
+    default: true,
+  }
+});
 
-// const roleSchema: Schema<IRole> = new Schema({
-//   roleName: {
-//     type: String,
-//     required: [true, "A role must have a name"],
-//     enum: Object.values(AllowedRoles),
-//     default: AllowedRoles.Admin,
-//     unique: true,
-//     trim: true,
-//   },
-//   status: {
-//     type: Boolean,
-//     required: [true, "Please specify the status"],
-//     default: true,
-//   }
-// });
+const Role = models.Role || model<IRole>("Role", roleSchema);
 
-// const Role = models.Role || model<IRole>("Role", roleSchema);
-
-// export default Role;
+export default Role;

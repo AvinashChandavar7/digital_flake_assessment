@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { AllowedRoles, IUser } from "../models/users.model";
 import { ApiError } from '../utils/ApiError';
+import { AllowedRoles } from '../types/shared';
 
 
 
