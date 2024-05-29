@@ -91,6 +91,8 @@ const deleteRoles = asyncHandler(async (req, res) => {
 const searchAndFilterRoles = asyncHandler(async (req, res) => {
   //#swagger.tags = ['Roles - Search or Filter']
 
+  const { rolesName, status } = req.query;
+
   const query = constructorSearchQuery(req.query);
 
   let sortOptions = {};

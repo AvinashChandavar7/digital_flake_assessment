@@ -130,6 +130,8 @@ const constructorSearchQuery = (queryParams: any) => {
 const searchAndFilterUsers = asyncHandler(async (req, res) => {
   //#swagger.tags = ['User - Search or Filter']
 
+  const { name, mobile, email, roleName, rolesName, status } = req.query;
+
   const query = constructorSearchQuery(req.query);
 
   let sortOptions = {};
