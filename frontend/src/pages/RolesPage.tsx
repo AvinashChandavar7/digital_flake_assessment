@@ -3,8 +3,29 @@ import Searchbar from '../components/shared/Searchbar'
 import { Button } from '../components/shared/Button'
 import { Link } from 'react-router-dom'
 import IconWithLabel from '../components/shared/IconWithLabel'
+import Table, { TableColumn } from '../components/shared/Table'
 
 const RolesPage: React.FC = () => {
+
+  const products = [
+    {
+      id: 1,
+      RoleName: 'Admin',
+      Status: 'Active',
+    },
+    {
+      id: 2,
+      RoleName: 'SuperAdmin',
+      Status: 'Inactive',
+    },
+  ];
+
+  const columns: TableColumn[] = [
+    { label: 'ID', accessor: 'id' },
+    { label: 'Role Name', accessor: 'RoleName' },
+    { label: 'Status', accessor: 'Status' },
+  ];
+
   return (
     <div >
 
@@ -33,6 +54,9 @@ const RolesPage: React.FC = () => {
         </Link> */}
 
       </div>
+
+
+      <Table data={products} columns={columns} />
 
     </div>
   )
