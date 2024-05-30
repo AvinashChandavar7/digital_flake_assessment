@@ -18,6 +18,7 @@ export default {
       },
       colors: {
         'purple-650': '#662671',
+        'purple-55': '#5C218B33',
         'gold-300': '#F4EDAF',
         'gray-333': '#E0E0E0',
       },

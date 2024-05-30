@@ -8,12 +8,18 @@ import EditRolesPage from "./pages/EditRolesPage"
 import CreateUserPage from "./pages/CreateUserPage"
 import EditUserPage from "./pages/EditUserPage"
 
+import RegisterPage from "./pages/auth/RegisterPage"
+import ForgetPasswordPage from "./pages/auth/ForgetPasswordPage"
+
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout><HomePage /></Layout>} />
       <Route path="/users" element={<Layout><UsersPage /></Layout>} />
       <Route path="/roles" element={<Layout><RolesPage /></Layout>} />
+
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/forgetPassword" element={<ForgetPasswordPage />} />
 
 
       <Route path="/create-role" element={<Layout><CreateRolesPage /></Layout>} />
