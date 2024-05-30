@@ -30,7 +30,7 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
   };
 
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg font-poppins">
+    <div className="relative overflow-x-auto font-poppins">
       <table className="w-full text-sm text-left">
 
         <thead className="text-xs  text-black uppercase bg-[#FFF8B7]">
@@ -49,22 +49,29 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
 
         <tbody className="bg-[#F2F2F2]">
           {data.map((product) => (
-            <tr key={product.id} className="my-2 border-b ">
-              {columns.map((column, index) => (
-                <td key={index} className={`px-6  py-4 ${column.accessor === "Status" ? (product.Status === "Active" ? "text-green-500" : "text-red-500") : ""}`}>
-                  {product[column.accessor]}
+            <>
+              <tr className='h-[10px]'></tr>
+
+              <tr key={product.id} className="my-2 border-b ">
+
+                {columns.map((column, index) => (
+                  <td key={index} className={`px-6  py-4 ${column.accessor === "Status" ? (product.Status === "Active" ? "text-green-500" : "text-red-500") : ""}`}>
+                    {product[column.accessor]}
+                  </td>
+                ))}
+
+                <td className="flex gap-2 px-6 py-4">
+                  <Link to={`/update-role/${product.id}`}>
+                    <img src="/assets/edit.svg" alt="Edit" />
+                  </Link>
+                  <img src="/assets/delete.svg" alt="Delete" onClick={handleToggleModal} />
+                  <Model title="Delete" isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
                 </td>
-              ))}
-              <td className="flex gap-2 px-6 py-4">
-                <Link to={`/update-role/${product.id}`}>
-                  <img src="/assets/edit.svg" alt="Edit" />
-                </Link>
-                <img src="/assets/delete.svg" alt="Delete" onClick={handleToggleModal} />
-                <Model title="Delete" isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-              </td>
-            </tr>
+              </tr>
+            </>
           ))}
         </tbody>
+
       </table>
     </div>
   );
