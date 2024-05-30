@@ -2,7 +2,7 @@ import React from 'react'
 import homepage from "../../public/assets/homepage.svg";
 
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   return (
     <div className='flex flex-col items-center justify-center w-full h-full'>
 
@@ -13,4 +13,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home;
+export default HomePage;
