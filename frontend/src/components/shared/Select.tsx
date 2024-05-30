@@ -25,14 +25,13 @@ const Select: React.FC<Props> = ({ id, label, value, options, onChange }) => {
   };
 
   return (
-    <div className="relative mt-5 border rounded-md max-w-[500px] w-full font-poppins">
+    <div className="relative my-5 mt-10  border rounded-md max-w-[500px] w-full h-fit font-poppins">
       <div
         tabIndex={0}
         className={`relative block px-10 pb-2.5 pt-4 w-full text-md text-gray-900 bg-transparent rounded-full border-1 border-gray-300 cursor-pointer appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <p className='capitalize'>
-
           {value || <p className='text-gray-400 lowercase'>select the options</p>}
         </p>
 
