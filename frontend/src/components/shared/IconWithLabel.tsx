@@ -1,4 +1,6 @@
 import React from "react"
+import { useNavigate } from 'react-router-dom';
+
 
 interface IconWithLabelProps {
   src: string;
@@ -17,8 +19,11 @@ const IconWithLabel: React.FC<IconWithLabelProps> = ({
   height = 30,
   loading = "lazy",
 }) => {
+
+  const navigate = useNavigate();
+
   return (
-    <div className='flex flex-row items-center gap-2'>
+    <div className='flex flex-row items-center gap-2' onClick={() => navigate(-1)}>
       <img src={src} alt={alt} width={width} height={height} loading={loading} />
       <p className='text-2xl font-bold'>{label}</p>
     </div>
