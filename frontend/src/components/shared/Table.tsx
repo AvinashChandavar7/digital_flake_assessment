@@ -51,7 +51,7 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
 
         <tbody className="bg-[#F2F2F2]">
           {data.map((product) => (
-            <>
+            <React.Fragment key={product.id}>
               <tr className='h-[10px]'></tr>
 
               <tr key={product.id} className="my-2 border-b ">
@@ -62,7 +62,7 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
                   </td>
                 ))}
 
-                <td className="flex gap-2 px-6 py-4">
+                <td className="flex gap-2 sm:py-4 sm:px-6">
                   <Link to={`/update-role/${product.id}`}>
                     <img src="/assets/edit.svg" alt="Edit" />
                   </Link>
@@ -70,7 +70,7 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
                   <Model title="Delete" isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
                 </td>
               </tr>
-            </>
+            </React.Fragment>
           ))}
         </tbody>
 
