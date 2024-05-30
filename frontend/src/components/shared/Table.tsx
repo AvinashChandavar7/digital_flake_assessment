@@ -31,9 +31,10 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
 
   return (
     <div className="relative overflow-x-auto font-poppins">
-      <table className="w-full text-sm text-left">
+      <table className="w-full text-sm text-left ">
 
-        <thead className="text-xs  text-black uppercase bg-[#FFF8B7]">
+        <thead className="text-md   text-black capitalize bg-[#FFF8B7]">
+
           <tr className=''>
             {columns.map((column, index) => (
               <th key={index} className="px-6 py-3">
@@ -45,6 +46,7 @@ const Table: React.FC<TableProps> = ({ data, columns }) => {
             ))}
             <th className="px-6 py-3">Action</th>
           </tr>
+
         </thead>
 
         <tbody className="bg-[#F2F2F2]">
