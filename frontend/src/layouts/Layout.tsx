@@ -14,7 +14,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <LeftSidebar />
 
         <section className="flex-1 w-full min-h-full pt-24 sm:px-5">
-          {children}
+          <div className="w-full h-[98%] border-x  border-b rounded-lg shadow-xl">
+
+            {children}
+          </div>
         </section>
 
       </div>
