@@ -13,9 +13,13 @@ export const content = [
 export default {
   theme: {
     extend: {
+      fontFamily: {
+        'poppins': ['Poppins'],
+      },
       colors: {
         'purple-650': '#662671',
         'gold-300': '#F4EDAF',
+        'gray-333': '#E0E0E0',
       },
     },
   },
