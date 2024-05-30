@@ -15,6 +15,7 @@ export default {
     extend: {
       colors: {
         'purple-650': '#662671',
+        'gold-300': '#F4EDAF',
       },
     },
   },

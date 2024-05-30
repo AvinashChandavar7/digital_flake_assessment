@@ -1,10 +1,14 @@
 import React from 'react'
-import LeftSidebar from '../components/shared/LeftSidebar';
+import homepage from "../../public/assets/homepage.svg";
+
 
 const Home: React.FC = () => {
   return (
-    <div>
-      <LeftSidebar />
+    <div className='flex flex-col items-center justify-center w-full h-full'>
+
+
+      <img src={homepage} alt="home" className='' />
+      <h1>Welcome to Digitalflake admin</h1>
     </div>
   )
 }

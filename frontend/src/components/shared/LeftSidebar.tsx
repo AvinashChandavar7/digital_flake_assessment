@@ -3,17 +3,16 @@ import { sidebarLinks } from '../../constants';
 import { useLocation, Link } from 'react-router-dom';
 
 const LeftSidebar: React.FC = () => {
-  const location = useLocation();
-  const pathname = location.pathname;
+  const { pathname } = useLocation();
 
   return (
     <section className='bg-[#F4F4F4]
-     custom-scrollbar sticky left-0 top-0 flex h-screen flex-col
-    justify-between overflow-y-auto border-r py-2 px-1
-    shadow-light-300 max-sm:hidden lg:w-[280px] dark:shadow-none
+    sticky left-0 top-20 flex h-screen  flex-col
+    justify-between overflow-y-auto border-r-2  py-24 px-1
+    max-sm:hidden lg:w-[280px] 
     '>
 
-      <div className='flex flex-1 flex-col gap-3'>
+      <div className='flex flex-col flex-1 gap-3'>
         {
           sidebarLinks.map((item) => {
 
@@ -25,24 +24,24 @@ const LeftSidebar: React.FC = () => {
             return (
               <Link to={item.route} key={item.route} title={item.title}
                 className={
-                  `${isActive ? 'bg-[#F4EDAF]' : ''
-                  } flex items-center justify-between gap-4 bg-transparent p-4`
+                  `${isActive ? 'bg-gold-300' : 'bg-transparent'
+                  } flex items-center justify-center md:justify-between  gap-4 bg-transparent p-4`
                 }>
 
                 <div className='flex gap-4'>
                   <img src={item.imgUrl} alt={item.label} width={20} height={20} loading="lazy" />
-                  <p className={`${isActive ? 'font-bold' : 'base-medium'} max-lg:hidden`}>
+                  <p className={`${isActive ? 'font-bold' : 'font-normal'}  max-lg:hidden`}>
                     {item.label}
                   </p>
                 </div>
 
-                <div className=''>
+                <div className='max-lg:hidden' >
                   <img
                     src={isActive ? item.activeUrl : item.notActiveUrl}
                     alt={item.label}
                     width={20}
                     height={20}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </div>
               </Link>
@@ -50,11 +49,6 @@ const LeftSidebar: React.FC = () => {
           })
         }
       </div>
-
-
-
-
-
 
     </section>
   )
